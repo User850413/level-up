@@ -1,15 +1,17 @@
+import { Problem } from '../constants/problem'
 import ProblemCheck from './ProblemCheck'
 
-const PROBLEMS = [
-  { id: 1, content: '첫 번째 문제', solved: false },
-  { id: 2, content: '두 번째 문제', solved: false },
-]
+interface ProblemCheckListProps {
+  problemList: Problem[]
+}
 
-export default function ProblemCheckList() {
+export default function ProblemCheckList({
+  problemList,
+}: ProblemCheckListProps) {
   return (
     <>
       <ul>
-        {PROBLEMS.map((problem) => (
+        {problemList.map((problem) => (
           <li key={problem.id}>
             <ProblemCheck
               id={problem.id}
